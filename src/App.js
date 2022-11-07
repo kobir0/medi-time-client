@@ -4,7 +4,7 @@ import Routes from "./Component/Shared-Compo/Routes";
 
 function App() {
   return (
-    <div className="App">
+    <div className="mx-5">
       <RouterProvider router={Routes}></RouterProvider>
     </div>
   );
