@@ -78,14 +78,17 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
+                <label className="label ">
                   <>
-                    New User ?{" "}
+                    <span className="text-teal-800 font-semibold">
+                      {" "}
+                      New User ?
+                    </span>{" "}
                     <NavLink
                       to={"../register"}
-                      className=" text-blue-600 text-lg label-text-alt link link-hover"
+                      className="label-text-alt link link-hover"
                     >
-                      <h1>Sign Up Now !!</h1>
+                      <button className="btn btn-xs">Click to Register</button>
                     </NavLink>
                   </>
                 </label>
