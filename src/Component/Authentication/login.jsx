@@ -26,6 +26,10 @@ const Login = () => {
       })
       .catch((error) => {
         setError(error.message);
+        if (error.message.includes("wrong-password")) {
+          setError("Your password is incorrect");
+        }
+
         console.error(error);
       });
   };
@@ -96,7 +100,9 @@ const Login = () => {
                 <p className="text-red-600">{Error}</p>
               </div>
               <div className="form-control mt-6 border-none">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-outline shadow-lg shadow-teal-100 btn-success">
+                  Login
+                </button>
               </div>
               <div className="flex justify-center">
                 <button className="flex  m-2" onClick={handleGooglePopUp}>

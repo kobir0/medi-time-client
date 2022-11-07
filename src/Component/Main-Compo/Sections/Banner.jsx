@@ -25,10 +25,10 @@ const Banner = () => {
               </p>
               <div className="flex">
                 {" "}
-                <button className="btn shadow-xl shadow-teal-100 lg:btn-wide btn-outline m-2 btn-success">
+                <button className=" hover:scale-105 btn shadow-xl shadow-teal-100 lg:btn-wide btn-outline m-2 btn-success">
                   See Services
                 </button>
-                <button className="btn shadow-xl shadow-teal-100 lg:btn-wide  btn-success m-2">
+                <button className="btn hover:scale-105 shadow-xl shadow-teal-100 lg:btn-wide  btn-success m-2">
                   Get Appointment
                 </button>
               </div>
