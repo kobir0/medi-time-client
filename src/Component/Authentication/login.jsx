@@ -36,6 +36,7 @@ const Login = () => {
         const resuser = res.user;
         console.log(resuser);
         alert("SuccessFully");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
