@@ -7,6 +7,7 @@ import AddService from "../Main-Compo/AddService";
 import Home from "../Main-Compo/Home";
 import Main from "../Main-Compo/Main";
 import MyReview from "../Main-Compo/MyReview";
+import ServiceDetails from "../Main-Compo/ServiceDetails";
 import Services from "../Main-Compo/Services";
 
 const Routes = createBrowserRouter([
@@ -38,6 +39,10 @@ const Routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/services/details/:id",
+        element: <ServiceDetails></ServiceDetails>,
       },
       {
         path: "/AddService",
