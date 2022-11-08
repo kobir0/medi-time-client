@@ -14,7 +14,7 @@ const HomeService = () => {
   }, []);
 
   return (
-    <div className="mx-5">
+    <div className="  mt-28">
       <h1 className="text-center text-teal-600 text-2xl my-5 font-bold">
         My Services
       </h1>
@@ -27,7 +27,7 @@ const HomeService = () => {
         ))}
       </div>
 
-      <div className="text-center my-2">
+      <div className="text-center mt-2">
         <NavLink className="" to="/services">
           <button className=" hover:scale-105 btn shadow-xl shadow-teal-100 lg:btn-wide  m-2 btn-success">
             See All
