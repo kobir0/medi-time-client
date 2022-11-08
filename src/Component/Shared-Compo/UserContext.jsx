@@ -49,6 +49,7 @@ const UserContext = ({ children }) => {
     createUser,
     logIn,
     signInWithPopGoogle,
+    setLoading,
   };
 
   useEffect(() => {

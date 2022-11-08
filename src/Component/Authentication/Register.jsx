@@ -4,7 +4,7 @@ import { AuthContext } from "../Shared-Compo/UserContext";
 
 const Register = () => {
   const [Error, setError] = useState("");
-  const { createUser, updateProfileInfo, logOut } = useContext(AuthContext);
+  const { createUser, updateProfileInfo } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,12 +30,6 @@ const Register = () => {
         console.log(error);
       });
   };
-
-  logOut()
-    .then(() => {})
-    .catch((err) => {
-      console.error(err);
-    });
 
   const handleUpdateprofile = (name, url) => {
     const profile = { displayName: name, photoURL: url };

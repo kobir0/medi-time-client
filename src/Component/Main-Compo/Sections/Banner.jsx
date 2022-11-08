@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="text-center">
       <div className="hero min-h-screen ">
         <div className="flex items-center justify-center flex-col lg:flex-row">
           <div className="w-full flex justify-center my-0 lg:my-8  lg:w-2/5">
@@ -23,7 +23,7 @@ const Banner = () => {
                 communities , and social and economic <br></br> conditions as
                 well as health policies .
               </p>
-              <div className="flex">
+              <div className="flex ml-2 justify-center lg:justify-start">
                 {" "}
                 <button className=" hover:scale-105 btn shadow-xl shadow-teal-100 lg:btn-wide btn-outline m-2 btn-success">
                   See Services

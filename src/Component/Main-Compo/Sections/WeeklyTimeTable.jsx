@@ -2,7 +2,7 @@ import React from "react";
 
 const WeeklyTimeTable = () => {
   return (
-    <div className="mb-10 mt-5">
+    <div className="mb-10 mt-10 lg:mt-0">
       <div className=" block lg:flex  ">
         <div className=" flex justify-center w-full lg:w-1/2 ">
           <h1 className="font-extrabold text-3xl ">

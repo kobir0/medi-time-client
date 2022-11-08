@@ -1,7 +1,9 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../Authentication/Login";
+import PrivateRoute from "../Authentication/PrivateRoute";
 import Register from "../Authentication/Register";
+import AddService from "../Main-Compo/AddService";
 import Home from "../Main-Compo/Home";
 import Main from "../Main-Compo/Main";
 import Services from "../Main-Compo/Services";
@@ -30,6 +32,15 @@ const Routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/AddService",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AddService></AddService>
+          </PrivateRoute>
+        ),
       },
     ],
   },
