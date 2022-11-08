@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -25,9 +26,11 @@ const Banner = () => {
               </p>
               <div className="flex ml-2 justify-center lg:justify-start">
                 {" "}
-                <button className=" hover:scale-105 btn shadow-xl shadow-teal-100 lg:btn-wide btn-outline m-2 btn-success">
-                  See Services
-                </button>
+                <NavLink to="/services">
+                  <button className=" hover:scale-105 btn shadow-xl shadow-teal-100 lg:btn-wide btn-outline m-2 btn-success">
+                    See Services
+                  </button>
+                </NavLink>
                 <button className="btn hover:scale-105 shadow-xl shadow-teal-100 lg:btn-wide  btn-success m-2">
                   Get Appointment
                 </button>

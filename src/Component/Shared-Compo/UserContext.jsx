@@ -61,7 +61,7 @@ const UserContext = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [auth]);
 
   return (
     <div>

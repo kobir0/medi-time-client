@@ -6,6 +6,7 @@ import Register from "../Authentication/Register";
 import AddService from "../Main-Compo/AddService";
 import Home from "../Main-Compo/Home";
 import Main from "../Main-Compo/Main";
+import MyReview from "../Main-Compo/MyReview";
 import Services from "../Main-Compo/Services";
 
 const Routes = createBrowserRouter([
@@ -24,6 +25,11 @@ const Routes = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
+        loader: () => fetch("http://localhost:5000/services"),
+      },
+      {
+        path: "/myreview",
+        element: <MyReview></MyReview>,
       },
       {
         path: "/login",

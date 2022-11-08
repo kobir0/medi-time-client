@@ -40,38 +40,55 @@ const Navbar = () => {
               <li>
                 <NavLink to="/home"> Home</NavLink>
               </li>
-              <li>
-                <NavLink to="/AddService">Add Service</NavLink>
-              </li>
-              <li>
-                <NavLink to="/home">My Review</NavLink>
-              </li>
             </ul>
           </div>
+          <div className="flex navbar-center">
+            <img
+              className="h-8 m-0 "
+              src="https://i.ibb.co/9gnjDPS/Screenshot-20221108-055438-removebg-preview.png"
+              alt=""
+            />
+            <NavLink
+              to="/"
+              className="btn m-0 btn-ghost btn-xs normal-case text-xl"
+            >
+              Medi<span className="text-teal-400"> TIME</span>
+            </NavLink>
+          </div>
         </div>
-        <div className="navbar-center">
-          <img
-            className="h-8 "
-            src="https://i.ibb.co/9gnjDPS/Screenshot-20221108-055438-removebg-preview.png"
-            alt=""
-          />
-          <NavLink to="/" className="btn btn-ghost normal-case text-xl">
-            Medi<span className="text-teal-400"> TIME</span>
-          </NavLink>
-        </div>
+
         <div className="navbar-end">
           {user?.email ? (
-            <button onClick={handleLogout} className="btn btn-xs">
-              Logout
-            </button>
+            <>
+              <NavLink to="/AddService">
+                <button className="btn m-1 btn-circle">
+                  {" "}
+                  <h1 className=" text-xs">Add Service</h1>
+                </button>
+              </NavLink>
+              <NavLink to="/myreview">
+                <button className="btn ml-1 btn-circle">
+                  <h1 className=" text-xs">My Review</h1>
+                </button>
+              </NavLink>
+              <button onClick={handleLogout} className="btn m-1 btn-circle">
+                <h1 className="  text-xs">Logout</h1>
+              </button>
+            </>
           ) : (
             <NavLink to="/login">
-              <button className="btn btn-xs">Login</button>
+              <button className="btn btn-circle">
+                {" "}
+                <h1 className=" text-xs">Login</h1>
+              </button>
             </NavLink>
           )}
 
           <NavLink to="/register">
-            <button className="btn btn-xs">Register</button>
+            <button className="btn m-1 btn-circle">
+              {" "}
+              <h1 className="ml-1 text-xs">Register</h1>
+            </button>
           </NavLink>
         </div>
       </div>
