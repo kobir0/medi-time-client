@@ -35,12 +35,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-center">
           <img
-            className="h-8 border rounded-full "
-            src="https://w7.pngwing.com/pngs/957/974/png-transparent-hospital-logo-clinic-health-care-physician-business.png"
+            className="h-8 "
+            src="https://i.ibb.co/9gnjDPS/Screenshot-20221108-055438-removebg-preview.png"
             alt=""
           />
           <NavLink to="/" className="btn btn-ghost normal-case text-xl">
-            Medi<span className="text-teal-400">TIME</span>
+            Medi<span className="text-teal-400"> TIME</span>
           </NavLink>
         </div>
         <div className="navbar-end">
