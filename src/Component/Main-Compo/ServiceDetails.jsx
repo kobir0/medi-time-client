@@ -15,10 +15,9 @@ const ServiceDetails = () => {
             <p className="text-2xl font-bold text-teal-600 my-2">
               Price: ${price}
             </p>
-            <p className="text-2xl font-bold text-teal-600 my-2">
-              rating:{rating}
+            <p className="text-2xl font-bold text-yellow-500 my-2">
+              Rating:{rating}
             </p>
-
             <button className="btn btn-primary">Get Started</button>
           </div>
         </div>

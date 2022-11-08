@@ -1,14 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const ServiceCard = ({ service }) => {
   const { name, image, price, description, rating, _id } = service;
   return (
     <div className="flex justify-center">
       <div className="card w-96 bg-base-100 shadow-lg">
-        <figure>
-          <img src={image} className=" h-56 w-full" alt="Shoes" />
-        </figure>
+        <PhotoProvider>
+          <PhotoView src={image}>
+            <figure>
+              <img src={image} className=" h-56 w-full" alt="Shoes" />
+            </figure>
+          </PhotoView>
+        </PhotoProvider>
+
         <div className="card-body">
           <h2 className="text-2xl font-bold">
             {name}
@@ -17,7 +24,7 @@ const ServiceCard = ({ service }) => {
           <p>{description.slice(0, 100)}...</p>
           <h1 className="text-xl font-semibold">Price: ${price}</h1>
           <div className="card-actions justify-end">
-            <NavLink to={`../services/details/${_id}`}>
+            <NavLink to={`../services/${_id}`}>
               <button className="btn btn-sm btn-success btn-outline">
                 See Details
               </button>

@@ -4,20 +4,27 @@ import Login from "../Authentication/Login";
 import PrivateRoute from "../Authentication/PrivateRoute";
 import Register from "../Authentication/Register";
 import AddService from "../Main-Compo/AddService";
+import Blog from "../Main-Compo/Blog";
 import Home from "../Main-Compo/Home";
 import Main from "../Main-Compo/Main";
 import MyReview from "../Main-Compo/MyReview";
 import ServiceDetails from "../Main-Compo/ServiceDetails";
 import Services from "../Main-Compo/Services";
+import Errorpage from "./Errorpage";
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Errorpage></Errorpage>,
     children: [
       {
         path: "/home",
         element: <Home></Home>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/",
@@ -41,7 +48,7 @@ const Routes = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/services/details/:id",
+        path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/${params.id}`),

@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import Loading from "../../Shared-Compo/Loading";
+import { AuthContext } from "../../Shared-Compo/UserContext";
 
 const Banner = () => {
+  const { loading, setLoading } = useContext(AuthContext);
+  const handleLoading = () => {
+    setLoading(true);
+    if (loading) {
+      return <Loading></Loading>;
+    }
+  };
+
   return (
     <div className="text-center">
       <div className="hero min-h-screen ">
@@ -27,7 +37,10 @@ const Banner = () => {
               <div className="flex ml-2 justify-center lg:justify-start">
                 {" "}
                 <NavLink to="/services">
-                  <button className=" hover:scale-105 btn shadow-xl shadow-teal-100 lg:btn-wide btn-outline m-2 btn-success">
+                  <button
+                    onClick={handleLoading}
+                    className=" hover:scale-105 btn shadow-xl shadow-teal-100 lg:btn-wide btn-outline m-2 btn-success"
+                  >
                     See Services
                   </button>
                 </NavLink>

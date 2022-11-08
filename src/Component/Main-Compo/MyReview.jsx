@@ -1,9 +1,10 @@
 import React from "react";
+import Loading from "../Shared-Compo/Loading";
 
 const MyReview = () => {
   return (
     <div className="text-center">
-      <h1>My Review</h1>
+      <Loading></Loading>
     </div>
   );
 };

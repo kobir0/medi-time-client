@@ -1,10 +1,22 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Shared-Compo/UserContext";
+
 import ServiceCard from "./ServiceCard";
 
 const Services = () => {
-  const data = useLoaderData();
-  const services = data.data;
+  const { setLoading } = useContext(AuthContext);
+
+  const [services, setService] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/services")
+      .then((response) => response.json())
+      .then((data) => {
+        setService(data.data);
+        setLoading(false);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <div className="">

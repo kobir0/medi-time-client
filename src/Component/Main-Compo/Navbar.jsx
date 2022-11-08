@@ -35,10 +35,13 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu text-teal-700 menu-compact dropdown-content mt-3 p-2 shadow bg-base- rounded-box w-52"
+              className="menu  bg-slate-50 text-teal-700 menu-compact dropdown-content mt-3 p-2 shadow bg-base- rounded-box w-52"
             >
               <li>
                 <NavLink to="/home"> Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/blog">Blog</NavLink>
               </li>
             </ul>
           </div>
@@ -67,7 +70,7 @@ const Navbar = () => {
                 </button>
               </NavLink>
               <NavLink to="/myreview">
-                <button className="btn ml-1 btn-circle">
+                <button className="btn   ml-1 btn-circle">
                   <h1 className=" text-xs">My Review</h1>
                 </button>
               </NavLink>
