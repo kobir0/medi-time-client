@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../Shared-Compo/UserContext";
+import { useTitle } from "../Shared-Compo/useTitle";
 
 const Login = () => {
   const [Error, setError] = useState("");
-
+  useTitle("Login");
   const { logIn, signInWithPopGoogle } = useContext(AuthContext);
 
   const navigate = useNavigate();

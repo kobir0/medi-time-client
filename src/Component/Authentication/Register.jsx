@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Shared-Compo/UserContext";
+import { useTitle } from "../Shared-Compo/useTitle";
 
 const Register = () => {
   const [Error, setError] = useState("");
   const { createUser, updateProfileInfo } = useContext(AuthContext);
+  useTitle("Register");
 
   const handleSubmit = (event) => {
     event.preventDefault();

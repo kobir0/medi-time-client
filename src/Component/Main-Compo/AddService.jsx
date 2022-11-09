@@ -1,6 +1,8 @@
 import React from "react";
+import { useTitle } from "../Shared-Compo/useTitle";
 
 const AddService = () => {
+  useTitle("Add Service");
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;

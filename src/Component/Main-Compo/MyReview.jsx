@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../Shared-Compo/UserContext";
+import { useTitle } from "../Shared-Compo/useTitle";
 import MyReviewCard from "./MyReviewCard";
 
 const MyReview = () => {
+  useTitle("My Review");
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 

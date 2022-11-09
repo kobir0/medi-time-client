@@ -1,6 +1,8 @@
 import React from "react";
+import { useTitle } from "../Shared-Compo/useTitle";
 
 const Blog = () => {
+  useTitle("Blog");
   return (
     <div className="  grid grid-col-1">
       <div className="flex justify-center">

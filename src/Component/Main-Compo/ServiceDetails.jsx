@@ -1,10 +1,12 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import { useTitle } from "../Shared-Compo/useTitle";
 import Reviews from "./Reviews";
 
 const ServiceDetails = () => {
   const data = useLoaderData();
   const { name, image, price, description, rating } = data.data;
+  useTitle("Service Details");
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
