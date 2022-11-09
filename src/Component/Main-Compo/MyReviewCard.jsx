@@ -1,4 +1,6 @@
 import React from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MyReviewCard = ({ review }) => {
   const { ServiceName, comment, rating, _id } = review;
@@ -11,9 +13,9 @@ const MyReviewCard = ({ review }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          alert(data.message);
+          toast(data.message);
         })
-        .catch((err) => alert(err.message));
+        .catch((err) => toast.error(err.message));
     } else {
       return;
     }

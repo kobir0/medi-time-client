@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Shared-Compo/UserContext";
 import { useTitle } from "../Shared-Compo/useTitle";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import ServiceCard from "./ServiceCard";
 
@@ -14,7 +16,7 @@ const Services = () => {
       .then((data) => {
         setService(data.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => toast.error(err.message));
   }, []);
 
   return (

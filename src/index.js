@@ -4,11 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import UserContext from "./Component/Shared-Compo/UserContext";
-
+import { ToastContainer } from "react-toastify";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {" "}
+    <ToastContainer></ToastContainer>
     <UserContext>
       {" "}
       <App />

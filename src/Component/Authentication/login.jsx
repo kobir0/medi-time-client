@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Shared-Compo/UserContext";
 import { useTitle } from "../Shared-Compo/useTitle";
 
@@ -22,8 +23,35 @@ const Login = () => {
 
     logIn(email, password)
       .then((result) => {
+        const user = result.user;
+        const currentUser = {
+          user: user.email,
+        };
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("token", data.token);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
         form.reset();
-        alert("SuccessFully");
+        toast("You have Logged In SuccessFully !!", {
+          icon: "👏",
+          style: {
+            borderRadius: "10px",
+          },
+          autoClose: 1800,
+          position: "top-center",
+        });
+
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -41,7 +69,15 @@ const Login = () => {
       .then((res) => {
         const resuser = res.user;
         console.log(resuser);
-        alert("SuccessFully");
+
+        toast("You have Logged In SuccessFully !!", {
+          icon: "👏",
+          style: {
+            borderRadius: "10px",
+          },
+          autoClose: 1800,
+          position: "top-center",
+        });
         navigate(from, { replace: true });
       })
       .catch((error) => {

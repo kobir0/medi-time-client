@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Shared-Compo/UserContext";
 import { useTitle } from "../Shared-Compo/useTitle";
 import MyReviewCard from "./MyReviewCard";
@@ -10,12 +11,16 @@ const MyReview = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review/email?email=${user?.email}`)
+    fetch(`http://localhost:5000/review/email?email=${user?.email}`, {
+      headers: {
+        authorization: `${localStorage.getItem("token")} `,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         setReviews(data.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => toast.error(err.message));
   }, [reviews]);
 
   return (

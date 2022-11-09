@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import HomeServiceCard from "./HomeServiceCard";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const HomeService = () => {
-  const [services, setService] = useState([]);
+  const [preServices, setPreService] = useState([]);
+  const [newServices, setNewService] = useState([]);
+  const services = [...preServices, ...newServices];
+
   console.log(services);
 
   useEffect(() => {
     fetch("http://localhost:5000/services/limit")
       .then((response) => response.json())
-      .then((data) => setService(data.data))
-      .catch((err) => console.error(err));
+      .then((data) => setPreService(data.data))
+      .catch((err) => toast.error(err.message));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/newService")
+      .then((response) => response.json())
+      .then((data) => setNewService(data.data))
+      .catch((err) => toast.error(err.message));
   }, []);
 
   return (

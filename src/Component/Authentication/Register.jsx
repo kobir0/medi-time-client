@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Shared-Compo/UserContext";
 import { useTitle } from "../Shared-Compo/useTitle";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const [Error, setError] = useState("");
@@ -23,12 +25,20 @@ const Register = () => {
         const user = userCredential.user;
         handleUpdateprofile(name, url);
         console.log("signed", user);
-        alert("SuccessFully");
+        toast("You have registered successFully !!", {
+          icon: "👏",
+          style: {
+            borderRadius: "10px",
+          },
+          autoClose: 1600,
+          position: "top-center",
+        });
 
         from.reset();
       })
       .catch((error) => {
         setError(error.message);
+        toast.error(error.message);
         console.log(error);
       });
   };
@@ -36,9 +46,18 @@ const Register = () => {
   const handleUpdateprofile = (name, url) => {
     const profile = { displayName: name, photoURL: url };
     updateProfileInfo(profile)
-      .then(() => {})
+      .then(() => {
+        toast("Profile Updated !!", {
+          icon: "👏",
+          style: {
+            borderRadius: "10px",
+          },
+          autoClose: 1200,
+          position: "top-center",
+        });
+      })
       .catch((err) => {
-        console.error(err);
+        toast.error(err.message);
       });
   };
 

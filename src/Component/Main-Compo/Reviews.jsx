@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../Shared-Compo/UserContext";
 import ReviewCard from "./ReviewCard";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Reviews = ({ data }) => {
   const location = useLocation();
@@ -48,14 +50,14 @@ const Reviews = ({ data }) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
-          alert(data.message);
+          toast(data.message);
           form.reset();
         } else {
-          alert(data.message);
+          toast.error(data.message);
         }
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.message);
       });
   };
   useEffect(() => {

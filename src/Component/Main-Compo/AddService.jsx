@@ -1,5 +1,7 @@
 import React from "react";
 import { useTitle } from "../Shared-Compo/useTitle";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddService = () => {
   useTitle("Add Service");
@@ -13,6 +15,7 @@ const AddService = () => {
       image: form.image.value,
       rating: form.rating.value,
       description: form.description.value,
+      newService: true,
     };
 
     fetch("http://localhost:5000/service/add", {
@@ -23,14 +26,21 @@ const AddService = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
-          alert(data.message);
+          toast("You have add a service successfully !!", {
+            icon: "👏",
+            style: {
+              borderRadius: "10px",
+            },
+            autoClose: 1800,
+            position: "top-center",
+          });
           form.reset();
         } else {
-          alert(data.message);
+          toast(data.message);
         }
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.message);
       });
   };
 
