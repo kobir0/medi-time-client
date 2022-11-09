@@ -13,7 +13,6 @@ const Services = () => {
       .then((response) => response.json())
       .then((data) => {
         setService(data.data);
-        setLoading(false);
       })
       .catch((err) => console.error(err));
   }, []);

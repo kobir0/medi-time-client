@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Reviews from "./Reviews";
 
 const ServiceDetails = () => {
   const data = useLoaderData();
@@ -18,10 +19,11 @@ const ServiceDetails = () => {
             <p className="text-2xl font-bold text-yellow-500 my-2">
               Rating:{rating}
             </p>
-            <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>
+
+      <Reviews data={data.data}></Reviews>
     </div>
   );
 };

@@ -12,6 +12,7 @@ const AddService = () => {
       rating: form.rating.value,
       description: form.description.value,
     };
+
     fetch("http://localhost:5000/service/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
