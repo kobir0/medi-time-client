@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Form, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../Shared-Compo/UserContext";
 import ReviewCard from "./ReviewCard";
 
@@ -7,17 +7,21 @@ const Reviews = ({ data }) => {
   const location = useLocation();
   const { user } = useContext(AuthContext);
   const { name, _id } = data;
+  // let value = useState(new Date());
+
+  // const datetime = JSON.stringify(value[0]).split("T");
+
+  // const newdate = datetime[0].slice(1);
+
+  // const newtime = datetime[1].slice(0, 12);
+
+  // console.log(newtime, newdate);
 
   let value = useState(new Date());
   const datetime = JSON.stringify(value[0]);
   const newDate = JSON.parse(datetime);
 
   const [reviews, setReviews] = useState([]);
-  const [refresh, setRefresh] = useState(true);
-
-  const handleRefresh = () => {
-    setRefresh(!refresh);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -84,12 +88,7 @@ const Reviews = ({ data }) => {
                   className="input mt-2 input-bordered input-success w-28 max-w-xs"
                 />
               </div>
-              <button
-                onClick={handleRefresh}
-                className="btn mt-2 btn-sm btn-success"
-              >
-                Post
-              </button>
+              <button className="btn mt-2 btn-sm btn-success">Post</button>
             </form>
           ) : (
             <NavLink to="/login" state={{ from: location }} replace>

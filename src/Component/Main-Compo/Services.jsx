@@ -4,8 +4,6 @@ import { AuthContext } from "../Shared-Compo/UserContext";
 import ServiceCard from "./ServiceCard";
 
 const Services = () => {
-  const { setLoading } = useContext(AuthContext);
-
   const [services, setService] = useState([]);
 
   useEffect(() => {
