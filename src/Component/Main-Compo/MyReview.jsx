@@ -27,7 +27,11 @@ const MyReview = () => {
           ))}
         </div>
       ) : (
-        <h1 className=" text-center mt-5 text-bold text-2xl">No Reviews Yet</h1>
+        <div className="min-h-srreen flex justify-center items-center">
+          <h1 className=" text-center mt-5 font-bold text-3xl">
+            No Reviews Yet
+          </h1>
+        </div>
       )}
     </div>
   );
