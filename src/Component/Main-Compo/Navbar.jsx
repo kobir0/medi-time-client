@@ -74,17 +74,19 @@ const Navbar = () => {
         <div className="navbar-end">
           {user?.email ? (
             <>
-              <NavLink to="/AddService">
-                <button className="btn m-1 btn-circle">
-                  {" "}
-                  <h1 className=" text-xs">Add Service</h1>
-                </button>
-              </NavLink>
-              <NavLink to="/myreview">
-                <button className="btn   ml-1 btn-circle">
-                  <h1 className=" text-xs">My Review</h1>
-                </button>
-              </NavLink>
+              <div className=" invisible lg:visible">
+                <NavLink to="/AddService">
+                  <button className="btn m-1 btn-circle">
+                    {" "}
+                    <h1 className=" text-xs">Add Service</h1>
+                  </button>
+                </NavLink>
+                <NavLink to="/myreview">
+                  <button className="btn   ml-1 btn-circle">
+                    <h1 className=" text-xs">My Review</h1>
+                  </button>
+                </NavLink>
+              </div>
               <button onClick={handleLogout} className="btn m-1 btn-circle">
                 <h1 className="  text-xs">Logout</h1>
               </button>
@@ -127,6 +129,19 @@ const Navbar = () => {
                   <h1 className="ml-1 text-xs">Register</h1>
                 </button>
               </NavLink>
+              <div className=" visible lg:invisible">
+                <NavLink to="/AddService">
+                  <button className="btn m-1 btn-sm">
+                    {" "}
+                    <h1 className=" text-xs">Add Service</h1>
+                  </button>
+                </NavLink>
+                <NavLink to="/myreview">
+                  <button className="btn   ml-1 btn-sm">
+                    <h1 className=" text-xs">My Review</h1>
+                  </button>
+                </NavLink>
+              </div>
             </ul>
           </div>
         </div>

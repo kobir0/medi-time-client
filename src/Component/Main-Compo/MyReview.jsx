@@ -11,11 +11,9 @@ const MyReview = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review/email?email=${user?.email}`, {
-      headers: {
-        authorization: `${localStorage.getItem("token")} `,
-      },
-    })
+    fetch(
+      `https://b6a11-service-review-server-side-kobir0-iota.vercel.app/reviewemail?email=${user?.email}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setReviews(data.data);

@@ -54,7 +54,9 @@ const Routes = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://b6a11-service-review-server-side-kobir0-iota.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/AddService",

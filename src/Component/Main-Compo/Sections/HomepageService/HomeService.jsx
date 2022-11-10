@@ -12,14 +12,18 @@ const HomeService = () => {
   console.log(services);
 
   useEffect(() => {
-    fetch("http://localhost:5000/services/limit")
+    fetch(
+      "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/threeservices"
+    )
       .then((response) => response.json())
       .then((data) => setPreService(data.data))
       .catch((err) => toast.error(err.message));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/newService")
+    fetch(
+      "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/newservice"
+    )
       .then((response) => response.json())
       .then((data) => setNewService(data.data))
       .catch((err) => toast.error(err.message));

@@ -27,13 +27,16 @@ const Login = () => {
         const currentUser = {
           user: user.email,
         };
-        fetch("http://localhost:5000/jwt", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(currentUser),
-        })
+        fetch(
+          "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/jwt",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(currentUser),
+          }
+        )
           .then((response) => response.json())
           .then((data) => {
             console.log(data);

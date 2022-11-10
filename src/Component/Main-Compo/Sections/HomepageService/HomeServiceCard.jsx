@@ -20,7 +20,7 @@ const HomeServiceCard = ({ service }) => {
             {name}
             <div className="badge mx-2 badge-warning">{rating}</div>
           </h2>
-          <p>{description.slice(0, 100)}...</p>
+          <p>{description?.slice(0, 100)}...</p>
           <h1 className="text-xl font-semibold">Price: ${price}</h1>
           <div className="card-actions justify-end">
             <NavLink to={`../services/${_id}`}>

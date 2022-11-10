@@ -11,7 +11,9 @@ const Services = () => {
   useTitle("Services");
 
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch(
+      "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/services"
+    )
       .then((response) => response.json())
       .then((data) => {
         setService(data.data);

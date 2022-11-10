@@ -18,11 +18,14 @@ const AddService = () => {
       newService: true,
     };
 
-    fetch("http://localhost:5000/service/add", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(service),
-    })
+    fetch(
+      "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/serviceadd",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(service),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
