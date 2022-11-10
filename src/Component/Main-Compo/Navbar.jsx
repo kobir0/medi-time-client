@@ -25,7 +25,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="navbar bg-neutral text-neutral-content rounded-b-md  shadow-xl shadow-teal-100">
+      <div className="navbar h-4 bg-neutral text-neutral-content rounded-b-md  shadow-xl shadow-teal-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -129,19 +129,21 @@ const Navbar = () => {
                   <h1 className="ml-1 text-xs">Register</h1>
                 </button>
               </NavLink>
-              <div className=" visible lg:invisible">
-                <NavLink to="/AddService">
-                  <button className="btn m-1 btn-sm">
-                    {" "}
-                    <h1 className=" text-xs">Add Service</h1>
-                  </button>
-                </NavLink>
-                <NavLink to="/myreview">
-                  <button className="btn   ml-1 btn-sm">
-                    <h1 className=" text-xs">My Review</h1>
-                  </button>
-                </NavLink>
-              </div>
+              {user?.email && (
+                <div className=" visible lg:invisible">
+                  <NavLink to="/AddService">
+                    <button className="btn m-1 btn-sm">
+                      {" "}
+                      <h1 className=" text-xs">Add Service</h1>
+                    </button>
+                  </NavLink>
+                  <NavLink to="/myreview">
+                    <button className="btn   m-1 btn-sm">
+                      <h1 className=" text-xs">My Review</h1>
+                    </button>
+                  </NavLink>
+                </div>
+              )}
             </ul>
           </div>
         </div>

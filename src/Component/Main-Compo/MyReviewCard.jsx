@@ -27,7 +27,7 @@ const MyReviewCard = ({ review }) => {
 
   return (
     <div className="m-2 ">
-      <div className="card w-96 h-64 max-h-full bg-base-100 shadow-xl">
+      <div className="card  w-72  h-64 max-h-full bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">
             Service Name: {ServiceName}

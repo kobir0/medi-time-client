@@ -78,7 +78,7 @@ const Reviews = ({ data }) => {
     <div className="mt-8">
       <div>
         <h2 className="text-3xl font-bold text-center">Reviews:</h2>
-        <div>
+        <div className="">
           {user?.email ? (
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col">
@@ -98,11 +98,14 @@ const Reviews = ({ data }) => {
               <button className="btn mt-2 btn-sm btn-success">Post</button>
             </form>
           ) : (
-            <NavLink to="/login" state={{ from: location }} replace>
-              <button className="btn btn-outline btn-sm btn-success">
-                Login To add Review
-              </button>
-            </NavLink>
+            <div className="text-center mt-2">
+              {" "}
+              <NavLink to="/login" state={{ from: location }} replace>
+                <button className="btn btn-outline btn-sm btn-success">
+                  Login To add Review
+                </button>
+              </NavLink>
+            </div>
           )}
 
           <div></div>
