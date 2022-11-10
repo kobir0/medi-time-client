@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Shared-Compo/UserContext";
-import { useTitle } from "../Shared-Compo/useTitle";
+import "react-photo-view/dist/react-photo-view.css";
 import { toast } from "react-toastify";
+import "./Nav.css";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -123,27 +124,31 @@ const Navbar = () => {
               <h1 className="text-teal-700 text-xl font-bold ml-1">
                 {user?.displayName}
               </h1>
-              <NavLink to="/register">
-                <button className="btn m-1 btn-sm">
-                  {" "}
-                  <h1 className="ml-1 text-xs">Register</h1>
-                </button>
-              </NavLink>
-              {user?.email && (
-                <div className=" visible lg:invisible">
-                  <NavLink to="/AddService">
-                    <button className="btn m-1 btn-sm">
+              <div className="flex justify-center ">
+                <div className="flex justify-center">
+                  <NavLink to="/register">
+                    <button className="btn m-1 btn-circle">
                       {" "}
-                      <h1 className=" text-xs">Add Service</h1>
+                      <h1 className="ml-1 nav-text-sm">Register</h1>
                     </button>
                   </NavLink>
-                  <NavLink to="/myreview">
-                    <button className="btn   m-1 btn-sm">
-                      <h1 className=" text-xs">My Review</h1>
-                    </button>
-                  </NavLink>
+                  {user?.email && (
+                    <div className=" visible lg:invisible">
+                      <NavLink to="/AddService">
+                        <button className="btn m-1 btn-circle">
+                          {" "}
+                          <h1 className=" nav-text-sm">Add Service</h1>
+                        </button>
+                      </NavLink>
+                      <NavLink to="/myreview">
+                        <button className="btn   m-1 btn-circle">
+                          <h1 className=" nav-text-sm">My Review</h1>
+                        </button>
+                      </NavLink>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </ul>
           </div>
         </div>

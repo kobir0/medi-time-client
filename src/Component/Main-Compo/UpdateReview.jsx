@@ -48,12 +48,12 @@ const UpdateReview = () => {
       });
   };
   return (
-    <div>
+    <div className="mt-14">
       <form className=" min-h-screen " onSubmit={handleSubmit}>
         <h1 className="m-2 text-xl text-center font-semibold">
           {data.data.ServiceName}
         </h1>
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-4">
           <div>
             <div>
               {" "}

@@ -47,9 +47,9 @@ const WeeklyTimeTable = () => {
             <h1 className="text-2xl font-bold  text-teal-700">Treatment</h1>
             <h1 className=" font-semibold">Individual approach</h1>
           </div>
-          <div className="div hover:scale-110 mx-1">
+          <div className="div hover:scale-110 mx-1 mt-4 lg:mt-0">
             <img
-              className="w-48  hover:shadow-teal-100 cursor-pointer shadow-lg  h-48"
+              className="w-48  hover:shadow-teal-100 cursor-pointer shadow-lg  h-44 lg:h-48"
               src="https://img.icons8.com/dusk/512/time-machine.png"
               alt=""
             />

@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import "react-photo-view/dist/react-photo-view.css";
 
 const HomeServiceCard = ({ service }) => {
   const { name, image, price, description, rating, _id } = service;
