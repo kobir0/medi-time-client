@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -36,7 +37,9 @@ const MyReviewCard = ({ review }) => {
 
           <div className="card-actions justify-end">
             <div className="">
-              <button className="btn btn-sm">Update</button>
+              <NavLink to={`../myreview/edit/${_id}`}>
+                <button className="btn btn-sm">Update</button>
+              </NavLink>
             </div>
             <div className="">
               <button
