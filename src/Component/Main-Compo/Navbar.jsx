@@ -109,54 +109,61 @@ const Navbar = () => {
             </NavLink>
           )}
 
-          <div className="dropdown dropdown-end">
-            <label
-              tabIndex={0}
-              className="btn m-1 sm:m-1 btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                {user?.photoURL ? (
-                  <img src={user.photoURL} alt="" />
-                ) : (
-                  <img
-                    src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=2000"
-                    alt=""
-                  />
-                )}
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className=" lg:hidden menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48 "
-            >
-              <div className=" ">
-                <div className=" flex ">
-                  <NavLink to="/register">
-                    <button className="btn m-1 btn-circle">
-                      {" "}
-                      <h1 className="ml-1 nav-text-sm">Register</h1>
-                    </button>
-                  </NavLink>
-                  {user?.email && (
-                    <div className=" visible lg:invisible">
-                      {user?.email === "kxkobir1999@gmail.com" && (
-                        <NavLink to="/AddService">
-                          <button className="btn m-1 btn-circle">
-                            {" "}
-                            <h1 className=" nav-text-sm">Add Service</h1>
-                          </button>
-                        </NavLink>
-                      )}
-                      <NavLink to="/myreview">
-                        <button className="btn   m-1 btn-circle">
-                          <h1 className=" nav-text-sm">My Review</h1>
-                        </button>
-                      </NavLink>
-                    </div>
+          {/* tooltip */}
+
+          <div
+            className="tooltip tooltip-left tooltip-warning"
+            data-tip={user?.displayName && user?.displayName}
+          >
+            <div className="dropdown dropdown-end">
+              <label
+                tabIndex={0}
+                className="btn m-1 sm:m-1 btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  {user?.photoURL ? (
+                    <img src={user.photoURL} alt="" />
+                  ) : (
+                    <img
+                      src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=2000"
+                      alt=""
+                    />
                   )}
                 </div>
-              </div>
-            </ul>
+              </label>
+              <ul
+                tabIndex={0}
+                className=" lg:hidden menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48 "
+              >
+                <div className=" ">
+                  <div className=" flex ">
+                    <NavLink to="/register">
+                      <button className="btn m-1 btn-circle">
+                        {" "}
+                        <h1 className="ml-1 nav-text-sm">Register</h1>
+                      </button>
+                    </NavLink>
+                    {user?.email && (
+                      <div className=" visible lg:invisible">
+                        {user?.email === "kxkobir1999@gmail.com" && (
+                          <NavLink to="/AddService">
+                            <button className="btn m-1 btn-circle">
+                              {" "}
+                              <h1 className=" nav-text-sm">Add Service</h1>
+                            </button>
+                          </NavLink>
+                        )}
+                        <NavLink to="/myreview">
+                          <button className="btn   m-1 btn-circle">
+                            <h1 className=" nav-text-sm">My Review</h1>
+                          </button>
+                        </NavLink>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
