@@ -13,6 +13,7 @@ import ServiceDetails from "../Main-Compo/ServiceDetails";
 import Services from "../Main-Compo/Services";
 import UpdateReview from "../Main-Compo/UpdateReview";
 import Errorpage from "./Errorpage";
+import Loading from "./Loading";
 
 const Routes = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ const Routes = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "/loading",
+    element: <Loading></Loading>,
   },
 ]);
 

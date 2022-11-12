@@ -5,9 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const HomeService = () => {
-  const [preServices, setPreService] = useState([]);
-  const [newServices, setNewService] = useState([]);
-  const services = [...preServices, ...newServices];
+  const [services, setService] = useState([]);
 
   console.log(services);
 
@@ -16,16 +14,7 @@ const HomeService = () => {
       "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/threeservices"
     )
       .then((response) => response.json())
-      .then((data) => setPreService(data.data))
-      .catch((err) => toast.error(err.message));
-  }, []);
-
-  useEffect(() => {
-    fetch(
-      "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/newservice"
-    )
-      .then((response) => response.json())
-      .then((data) => setNewService(data.data))
+      .then((data) => setService(data.data))
       .catch((err) => toast.error(err.message));
   }, []);
 

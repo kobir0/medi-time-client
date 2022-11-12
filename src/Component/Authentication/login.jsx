@@ -9,6 +9,7 @@ const Login = () => {
   const [Error, setError] = useState("");
   useTitle("Login");
   const { logIn, signInWithPopGoogle } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,6 +21,10 @@ const Login = () => {
     const password = form.password.value;
     const email = form.email.value;
     console.log(password, email);
+
+    if (password.length < 5) {
+      setLoading(false);
+    }
 
     logIn(email, password)
       .then((result) => {
@@ -45,6 +50,7 @@ const Login = () => {
           .catch((err) => {
             console.log(err);
           });
+        setLoading(false);
         form.reset();
         toast("You have Logged In SuccessFully !!", {
           icon: "👏",
@@ -88,11 +94,14 @@ const Login = () => {
         setError(error.message);
       });
   };
+  const handleLoading = () => {
+    setLoading(true);
+  };
 
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col ">
+        <div className="hero-content  w-80 lg:w-96 flex-col ">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Please Login Now!</h1>
           </div>
@@ -134,16 +143,27 @@ const Login = () => {
                       to={"../register"}
                       className="label-text-alt link link-hover"
                     >
-                      <button className="btn btn-xs">Click to Register</button>
+                      <button className="btn btn-xs btn-success ">
+                        Click to Register
+                      </button>
                     </NavLink>
                   </>
                 </label>
                 <p className="text-red-600">{Error}</p>
               </div>
               <div className="form-control mt-6 border-none">
-                <button className="btn btn-outline shadow-lg shadow-teal-100 btn-success">
-                  Login
-                </button>
+                {loading ? (
+                  <button className="btn btn-outline shadow-lg shadow-teal-100 btn-success">
+                    Loading...
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleLoading}
+                    className="btn btn-outline shadow-lg shadow-teal-100 btn-success"
+                  >
+                    Login
+                  </button>
+                )}
               </div>
               <div className="flex justify-center">
                 <button className="flex  m-2" onClick={handleGooglePopUp}>

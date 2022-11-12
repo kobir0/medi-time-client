@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const [Error, setError] = useState("");
   const { createUser, updateProfileInfo } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
   useTitle("Register");
 
   const handleSubmit = (event) => {
@@ -25,6 +26,7 @@ const Register = () => {
         const user = userCredential.user;
         handleUpdateprofile(name, url);
         console.log("signed", user);
+        setLoading(false);
         toast("You have registered successFully !!", {
           icon: "👏",
           style: {
@@ -47,6 +49,7 @@ const Register = () => {
     const profile = { displayName: name, photoURL: url };
     updateProfileInfo(profile)
       .then(() => {
+        setLoading(false);
         toast("Profile Updated !!", {
           icon: "👏",
           style: {
@@ -60,11 +63,14 @@ const Register = () => {
         toast.error(err.message);
       });
   };
+  const handleLoading = () => {
+    setLoading(true);
+  };
 
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col ">
+        <div className="hero-content w-80 lg:w-96 flex-col ">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Please Register Here!!</h1>
           </div>
@@ -130,16 +136,27 @@ const Register = () => {
                       to={"../login"}
                       className="label-text-alt link link-hover"
                     >
-                      <button className="btn btn-xs">Log In </button>
+                      <button className="btn btn-xs btn-success  w-20">
+                        Log In{" "}
+                      </button>
                     </NavLink>
                   </>
                 </label>
                 <p className="text-red-600">{Error}</p>
               </div>
               <div className="form-control mt-6 border-none">
-                <button className="btn btn-outline shadow-lg shadow-teal-100 btn-success">
-                  Register
-                </button>
+                {loading ? (
+                  <button className="btn btn-outline shadow-lg shadow-teal-100 btn-success">
+                    Loading...
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleLoading}
+                    className="btn btn-outline shadow-lg shadow-teal-100 btn-success"
+                  >
+                    Register
+                  </button>
+                )}
               </div>
             </div>
           </form>

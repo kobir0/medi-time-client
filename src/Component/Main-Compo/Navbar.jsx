@@ -76,27 +76,35 @@ const Navbar = () => {
           {user?.email ? (
             <>
               <div className=" invisible lg:visible">
-                <NavLink to="/AddService">
-                  <button className="btn m-1 btn-circle">
-                    {" "}
-                    <h1 className=" text-xs">Add Service</h1>
-                  </button>
-                </NavLink>
+                {user?.email === "kxkobir1999@gmail.com" && (
+                  <NavLink to="/AddService">
+                    <button className="btn m-1 btn-sm">
+                      {" "}
+                      <h1 className="text-xs">Add Service</h1>
+                    </button>
+                  </NavLink>
+                )}
                 <NavLink to="/myreview">
-                  <button className="btn   ml-1 btn-circle">
+                  <button className="btn   ml-1 btn-sm">
                     <h1 className=" text-xs">My Review</h1>
                   </button>
                 </NavLink>
+                <NavLink to="/register">
+                  <button className="btn m-1 btn-sm ">
+                    {" "}
+                    <h1 className="ml-1 text-xs ">Register</h1>
+                  </button>
+                </NavLink>
               </div>
-              <button onClick={handleLogout} className="btn m-1 btn-circle">
+              <button onClick={handleLogout} className="btn m-1 btn-sm">
                 <h1 className="  text-xs">Logout</h1>
               </button>
             </>
           ) : (
             <NavLink to="/login">
-              <button className="btn btn-circle">
+              <button className="btn btn-sm text-white btn-outline lg:btn-sm">
                 {" "}
-                <h1 className=" text-xs">Login</h1>
+                <h1 className=" text-xs ">Login</h1>
               </button>
             </NavLink>
           )}
@@ -119,13 +127,10 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className=" menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className=" lg:hidden menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48 "
             >
-              <h1 className="text-teal-700 text-xl font-bold ml-1">
-                {user?.displayName}
-              </h1>
-              <div className="flex justify-center ">
-                <div className="flex justify-center">
+              <div className=" ">
+                <div className=" flex ">
                   <NavLink to="/register">
                     <button className="btn m-1 btn-circle">
                       {" "}
@@ -134,12 +139,14 @@ const Navbar = () => {
                   </NavLink>
                   {user?.email && (
                     <div className=" visible lg:invisible">
-                      <NavLink to="/AddService">
-                        <button className="btn m-1 btn-circle">
-                          {" "}
-                          <h1 className=" nav-text-sm">Add Service</h1>
-                        </button>
-                      </NavLink>
+                      {user?.email === "kxkobir1999@gmail.com" && (
+                        <NavLink to="/AddService">
+                          <button className="btn m-1 btn-circle">
+                            {" "}
+                            <h1 className=" nav-text-sm">Add Service</h1>
+                          </button>
+                        </NavLink>
+                      )}
                       <NavLink to="/myreview">
                         <button className="btn   m-1 btn-circle">
                           <h1 className=" nav-text-sm">My Review</h1>

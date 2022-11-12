@@ -4,8 +4,10 @@ import { useTitle } from "../Shared-Compo/useTitle";
 import Reviews from "./Reviews";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+
 const ServiceDetails = () => {
   const data = useLoaderData();
+
   const { name, image, price, description, rating } = data.data;
   useTitle("Service Details");
   return (
