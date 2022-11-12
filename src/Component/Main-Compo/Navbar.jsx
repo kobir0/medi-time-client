@@ -112,7 +112,7 @@ const Navbar = () => {
           {/* tooltip */}
 
           <div
-            className="tooltip tooltip-left tooltip-warning"
+            className="tooltip tooltip-left tooltip-success"
             data-tip={user?.displayName && user?.displayName}
           >
             <div className="dropdown dropdown-end">
