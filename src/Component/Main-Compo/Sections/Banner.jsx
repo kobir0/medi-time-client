@@ -31,9 +31,11 @@ const Banner = () => {
                     See Services
                   </button>
                 </NavLink>
-                <button className="btn hover:scale-105 shadow-xl shadow-teal-100 lg:btn-wide  btn-success m-2">
-                  Get Appointment
-                </button>
+                <NavLink to="../appointment">
+                  <button className="btn hover:scale-105 shadow-xl shadow-teal-100 lg:btn-wide  btn-success m-2">
+                    Get Appointment
+                  </button>
+                </NavLink>
               </div>
             </div>
           </div>

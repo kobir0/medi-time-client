@@ -12,22 +12,22 @@ const ServiceDetails = () => {
   useTitle("Service Details");
   return (
     <div>
-      <div className="hero min-w-screen min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero bg-slate-50 rounded-lg min-w-screen  ">
+        <div className="hero-content mt-5 flex-col lg:flex-row-reverse">
           <div className="div">
+            <h1 className="text-5xl my-3 font-bold">{name}</h1>
             <PhotoProvider>
               <PhotoView src={image}>
                 <figure>
                   <img
                     src={image}
-                    className=" lg:w-full w-44 max-w-sm rounded-lg shadow-2xl"
+                    className=" lg:w-full h-full w-44 max-w-sm rounded-lg shadow-2xl"
                     alt=""
                   />
                 </figure>
               </PhotoView>
             </PhotoProvider>
 
-            <h1 className="text-5xl font-bold">{name}</h1>
             <p className="py-6 ">{description}</p>
             <p className="text-2xl font-bold text-teal-600 my-2">
               Price: ${price}

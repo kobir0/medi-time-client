@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import Appoinment from "../Appointment/Appointment/Appoinment";
 import Login from "../Authentication/Login";
 import PrivateRoute from "../Authentication/PrivateRoute";
 import Register from "../Authentication/Register";
@@ -36,6 +37,10 @@ const Routes = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
+      },
+      {
+        path: "/appointment",
+        element: <Appoinment></Appoinment>,
       },
       {
         path: "/myreview",

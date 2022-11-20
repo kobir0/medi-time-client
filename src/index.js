@@ -5,15 +5,21 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import UserContext from "./Component/Shared-Compo/UserContext";
 import { ToastContainer } from "react-toastify";
+import "react-day-picker/dist/style.css";
+import "react-toastify/dist/ReactToastify.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
     {" "}
     <ToastContainer></ToastContainer>
-    <UserContext>
-      {" "}
-      <App />
-    </UserContext>
+    <QueryClientProvider client={queryClient}>
+      <UserContext>
+        {" "}
+        <App />
+      </UserContext>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
