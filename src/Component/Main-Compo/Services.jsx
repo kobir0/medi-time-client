@@ -13,9 +13,7 @@ const Services = () => {
   useTitle("Services");
 
   useEffect(() => {
-    fetch(
-      "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/services"
-    )
+    fetch("https://medi-time.onrender.com/services")
       .then((response) => response.json())
       .then((data) => {
         setService(data.data);

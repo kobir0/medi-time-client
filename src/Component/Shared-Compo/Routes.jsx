@@ -4,6 +4,10 @@ import Appoinment from "../Appointment/Appointment/Appoinment";
 import Login from "../Authentication/Login";
 import PrivateRoute from "../Authentication/PrivateRoute";
 import Register from "../Authentication/Register";
+import Dashboard from "../DashBoard/DashBoard/Dashboard";
+import DashContent from "../DashBoard/DashBoard/DashContent";
+import DashUsers from "../DashBoard/DashBoard/DashUsers";
+import MyAppoinments from "../DashBoard/DashBoard/MyAppoinments";
 import AddService from "../Main-Compo/AddService";
 import Blog from "../Main-Compo/Blog";
 
@@ -40,7 +44,33 @@ const Routes = createBrowserRouter([
       },
       {
         path: "/appointment",
-        element: <Appoinment></Appoinment>,
+        element: (
+          <PrivateRoute>
+            <Appoinment></Appoinment>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+        ),
+        children: [
+          {
+            path: "/dashboard",
+            element: <DashContent></DashContent>,
+          },
+          {
+            path: "/dashboard/myappointment",
+            element: <MyAppoinments></MyAppoinments>,
+          },
+          {
+            path: "/dashboard/users",
+            element: <DashUsers></DashUsers>,
+          },
+        ],
       },
       {
         path: "/myreview",
@@ -58,9 +88,7 @@ const Routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://b6a11-service-review-server-side-kobir0-iota.vercel.app/review/${params.id}`
-          ),
+          fetch(`https://medi-time.onrender.com/review/${params.id}`),
       },
       {
         path: "/login",
@@ -74,9 +102,7 @@ const Routes = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(
-            `https://b6a11-service-review-server-side-kobir0-iota.vercel.app/services/${params.id}`
-          ),
+          fetch(`https://medi-time.onrender.com/services/${params.id}`),
       },
       {
         path: "/AddService",

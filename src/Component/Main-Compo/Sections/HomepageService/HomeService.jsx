@@ -7,12 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 const HomeService = () => {
   const [services, setService] = useState([]);
 
-  console.log(services);
-
   useEffect(() => {
-    fetch(
-      "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/threeservices"
-    )
+    fetch("https://medi-time.onrender.com/threeservices")
       .then((response) => response.json())
       .then((data) => setService(data.data))
       .catch((err) => toast.error(err.message));

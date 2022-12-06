@@ -18,14 +18,11 @@ const UpdateReview = () => {
       comment: comment,
     };
 
-    fetch(
-      `https://b6a11-service-review-server-side-kobir0-iota.vercel.app/edit/${data.data._id}`,
-      {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(review),
-      }
-    )
+    fetch(`https://medi-time.onrender.com/edit/${data.data._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(review),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {

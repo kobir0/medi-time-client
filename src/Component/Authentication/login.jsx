@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Shared-Compo/UserContext";
 import { useTitle } from "../Shared-Compo/useTitle";
+import useToken from "../Shared-Compo/useToken";
 
 const Login = () => {
   const [Error, setError] = useState("");
@@ -14,13 +15,22 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [userEmail, setUserEmail] = useState("");
+
+  
+  console.log(userEmail);
+
+  const token = useToken(userEmail);
+
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const password = form.password.value;
     const email = form.email.value;
-    console.log(password, email);
 
     if (password.length < 5) {
       setLoading(false);
@@ -28,30 +38,9 @@ const Login = () => {
 
     logIn(email, password)
       .then((result) => {
-        const user = result.user;
-        const currentUser = {
-          user: user.email,
-        };
-        fetch(
-          "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/jwt",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(currentUser),
-          }
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            localStorage.setItem("token", data.token);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
         setLoading(false);
         form.reset();
+
         toast("You have Logged In SuccessFully !!", {
           icon: "👏",
           style: {
@@ -60,8 +49,6 @@ const Login = () => {
           autoClose: 1800,
           position: "top-center",
         });
-
-        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -76,8 +63,7 @@ const Login = () => {
   const handleGooglePopUp = () => {
     signInWithPopGoogle()
       .then((res) => {
-        const resuser = res.user;
-        console.log(resuser);
+        userToDb(res?.user?.displayName, res?.user?.email);
 
         toast("You have Logged In SuccessFully !!", {
           icon: "👏",
@@ -96,6 +82,23 @@ const Login = () => {
   };
   const handleLoading = () => {
     setLoading(true);
+  };
+
+  const userToDb = (name, email) => {
+   
+    const user = { name, email };
+    fetch("https://medi-time.onrender.com/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {})
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

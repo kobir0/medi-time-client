@@ -42,14 +42,11 @@ const Reviews = ({ data }) => {
       date: newDate,
     };
 
-    fetch(
-      "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/reviewadd",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(review),
-      }
-    )
+    fetch("https://medi-time.onrender.com/reviewadd", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(review),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
@@ -64,9 +61,7 @@ const Reviews = ({ data }) => {
       });
   };
   useEffect(() => {
-    fetch(
-      `https://b6a11-service-review-server-side-kobir0-iota.vercel.app/review?serviceID=${_id}`
-    )
+    fetch(`https://medi-time.onrender.com/review?serviceID=${_id}`)
       .then((response) => response.json())
       .then((data) => {
         setReviews(data.data);

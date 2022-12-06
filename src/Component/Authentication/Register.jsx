@@ -1,14 +1,23 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Shared-Compo/UserContext";
 import { useTitle } from "../Shared-Compo/useTitle";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useToken from "../Shared-Compo/useToken";
 
 const Register = () => {
   const [Error, setError] = useState("");
   const { createUser, updateProfileInfo } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const [userEmail, setUserEmail] = useState("");
+
+  const token = useToken(userEmail);
+  if (token) {
+    navigate("/");
+  }
+
   useTitle("Register");
 
   const handleSubmit = (event) => {
@@ -25,8 +34,11 @@ const Register = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         handleUpdateprofile(name, url);
+
         console.log("signed", user);
+
         setLoading(false);
+
         toast("You have registered successFully !!", {
           icon: "👏",
           style: {
@@ -35,6 +47,7 @@ const Register = () => {
           autoClose: 1600,
           position: "top-center",
         });
+        userToDb(name, email);
 
         from.reset();
       })
@@ -50,14 +63,7 @@ const Register = () => {
     updateProfileInfo(profile)
       .then(() => {
         setLoading(false);
-        toast("Profile Updated !!", {
-          icon: "👏",
-          style: {
-            borderRadius: "10px",
-          },
-          autoClose: 1200,
-          position: "top-center",
-        });
+        setError("");
       })
       .catch((err) => {
         toast.error(err.message);
@@ -66,6 +72,35 @@ const Register = () => {
   const handleLoading = () => {
     setLoading(true);
   };
+
+  const userToDb = (name, email) => {
+    const user = { name, email };
+    fetch("https://medi-time.onrender.com/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserEmail(email);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // const getUserToken = (email) => {
+  //   fetch(`https://medi-time.onrender.com/jwt?email=${email}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.accessToken) {
+  //         localStorage.setItem("accessToken", data.accessToken);
+  //         navigate("/");
+  //       }
+  //     });
+  // };
 
   return (
     <div>

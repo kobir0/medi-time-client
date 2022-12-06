@@ -26,7 +26,7 @@ const Navbar = () => {
   };
   return (
     <div className=" sticky top-0 z-30">
-      <div className="navbar h-4 bg-neutral text-neutral-content rounded-b-md  shadow-xl shadow-teal-100">
+      <div className="navbar h-4 bg-neutral text-neutral-content rounded-b-md shadow-lg shadow-teal-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -73,7 +73,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
-          {user?.email ? (
+          {user?.displayName ? (
             <>
               <div className=" invisible lg:visible">
                 {user?.email === "kxkobir1999@gmail.com" && (
@@ -87,6 +87,11 @@ const Navbar = () => {
                 <NavLink to="/myreview">
                   <button className="btn   ml-1 btn-sm">
                     <h1 className=" text-xs">My Review</h1>
+                  </button>
+                </NavLink>
+                <NavLink to="../dashboard">
+                  <button className="btn   ml-1 btn-sm">
+                    <h1 className=" text-xs">Dash Board</h1>
                   </button>
                 </NavLink>
                 <NavLink to="/register">
@@ -156,6 +161,11 @@ const Navbar = () => {
                         <NavLink to="/myreview">
                           <button className="btn   m-1 btn-circle">
                             <h1 className=" nav-text-sm">My Review</h1>
+                          </button>
+                        </NavLink>
+                        <NavLink to="../dashboard">
+                          <button className="btn   m-1 btn-circle">
+                            <h1 className=" nav-text-sm">Dash board</h1>
                           </button>
                         </NavLink>
                       </div>

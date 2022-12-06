@@ -9,12 +9,9 @@ const MyReviewCard = ({ review }) => {
   const handleDelete = (id) => {
     const cons = window.confirm("Are sure you want to delete this ?");
     if (cons) {
-      fetch(
-        `https://b6a11-service-review-server-side-kobir0-iota.vercel.app/reviewdelete/${id}`,
-        {
-          method: "DELETE",
-        }
-      )
+      fetch(`https://medi-time.onrender.com/reviewdelete/${id}`, {
+        method: "DELETE",
+      })
         .then((res) => res.json())
         .then((data) => {
           toast(data.message);

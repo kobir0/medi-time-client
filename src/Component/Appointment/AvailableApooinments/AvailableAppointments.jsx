@@ -15,9 +15,9 @@ const AvailableAppointments = ({ selectedDate }) => {
   } = useQuery({
     queryKey: ["appointmentOptions", date],
     queryFn: () =>
-      fetch(`http://localhost:5000/appointmentOptions?date=${date}`).then(
-        (res) => res.json()
-      ),
+      fetch(
+        `https://medi-time.onrender.com/appointmentOptions?date=${date}`
+      ).then((res) => res.json()),
   });
   if (isLoading) {
     return <Loading></Loading>;

@@ -34,24 +34,22 @@ const BookingModal = ({
       apppointmentDate: date,
       slot,
     };
-    fetch(
-      "https://b6a11-service-review-server-side-kobir0-iota.vercel.app/bookings",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(booking),
-      }
-    )
+    fetch("https://medi-time.onrender.com/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(booking),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.status) {
           toast(data.message);
           refetch();
+        } else {
+          toast.error(data.message);
         }
       })
       .catch((err) => {
         console.error(err);
-        refetch();
       });
   };
   return (
