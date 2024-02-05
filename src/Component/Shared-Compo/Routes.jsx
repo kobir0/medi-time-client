@@ -88,7 +88,7 @@ const Routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://medi-time.onrender.com/review/${params.id}`),
+          fetch(`https://meditime-2-server.onrender.com/review/${params.id}`),
       },
       {
         path: "/login",
@@ -102,7 +102,7 @@ const Routes = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`https://medi-time.onrender.com/services/${params.id}`),
+          fetch(`https://meditime-2-server.onrender.com/services/${params.id}`),
       },
       {
         path: "/AddService",

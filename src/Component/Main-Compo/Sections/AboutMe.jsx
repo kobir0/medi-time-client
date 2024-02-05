@@ -1,5 +1,7 @@
 import React from "react";
 
+import meditime2 from "./meditime2.json";
+import Lottie from "lottie-react";
 const AboutMe = () => {
   return (
     <div className="mt-20">
@@ -33,11 +35,12 @@ const AboutMe = () => {
           </div>
         </div>
         <div className="div">
-          <img
+          <Lottie className=" rounded-lg " animationData={meditime2}></Lottie>
+          {/* <img
             className="mask mask-squircle"
             src="https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg"
             alt=""
-          />
+          /> */}
         </div>
       </div>
     </div>

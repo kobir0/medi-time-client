@@ -15,11 +15,8 @@ const Footer = () => {
           <p className="text-center">
             {" "}
             Developed By <br></br>
-            <span className="text-teal-300">
-              <a
-                href="https://www.linkedin.com/in/ko-bir-928b09252/"
-                target="blank"
-              >
+            <span className="text-teal-500">
+              <a href="https://www.linkedin.com/in/devkobir/" target="blank">
                 {" "}
                 @Kobir
               </a>
@@ -37,7 +34,7 @@ const Footer = () => {
             ></img>
           </a>
 
-          <a href="https://www.facebook.com/dracula.x.sir" target="blank">
+          <a href="https://www.facebook.com/code.with.kobir" target="blank">
             <img
               width="24"
               className=""

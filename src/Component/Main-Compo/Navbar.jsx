@@ -67,7 +67,7 @@ const Navbar = () => {
               to="/"
               className="btn m-0 btn-ghost btn-xs normal-case text-xl"
             >
-              Medi<span className="text-teal-400"> TIME</span>
+              Medi<span className="text-emerald-500"> TIME</span>
             </NavLink>
           </div>
         </div>

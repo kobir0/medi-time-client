@@ -9,7 +9,7 @@ const MyReviewCard = ({ review }) => {
   const handleDelete = (id) => {
     const cons = window.confirm("Are sure you want to delete this ?");
     if (cons) {
-      fetch(`https://medi-time.onrender.com/reviewdelete/${id}`, {
+      fetch(`https://meditime-2-server.onrender.com/reviewdelete/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

@@ -42,7 +42,7 @@ const Reviews = ({ data }) => {
       date: newDate,
     };
 
-    fetch("https://medi-time.onrender.com/reviewadd", {
+    fetch("https://meditime-2-server.onrender.com/reviewadd", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(review),
@@ -61,7 +61,7 @@ const Reviews = ({ data }) => {
       });
   };
   useEffect(() => {
-    fetch(`https://medi-time.onrender.com/review?serviceID=${_id}`)
+    fetch(`https://meditime-2-server.onrender.com/review?serviceID=${_id}`)
       .then((response) => response.json())
       .then((data) => {
         setReviews(data.data);

@@ -11,7 +11,9 @@ const MyReview = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`https://medi-time.onrender.com/reviewemail?email=${user?.email}`)
+    fetch(
+      `https://meditime-2-server.onrender.com/reviewemail?email=${user?.email}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setReviews(data.data);

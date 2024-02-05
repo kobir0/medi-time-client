@@ -20,7 +20,7 @@ const AddService = () => {
       newService: true,
     };
 
-    fetch("https://medi-time.onrender.com/serviceadd", {
+    fetch("https://meditime-2-server.onrender.com/serviceadd", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(service),

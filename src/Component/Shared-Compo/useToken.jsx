@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 
 const useToken = (email) => {
   const [token, setToken] = useState("");
-  console.log(token);
 
   useEffect(() => {
     if (email) {
-      console.log(email);
-      fetch(`https://medi-time.onrender.com/jwt?email=${email}`)
+      fetch(`https://meditime-2-server.onrender.com/jwt?email=${email}`)
         .then((response) => response.json())
         .then((data) => {
           if (data.accessToken) {

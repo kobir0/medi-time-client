@@ -17,7 +17,6 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
   const [userEmail, setUserEmail] = useState("");
 
-  
   console.log(userEmail);
 
   const token = useToken(userEmail);
@@ -85,9 +84,8 @@ const Login = () => {
   };
 
   const userToDb = (name, email) => {
-   
     const user = { name, email };
-    fetch("https://medi-time.onrender.com/users", {
+    fetch("https://meditime-2-server.onrender.com/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

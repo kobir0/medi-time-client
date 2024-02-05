@@ -13,7 +13,7 @@ const Services = () => {
   useTitle("Services");
 
   useEffect(() => {
-    fetch("https://medi-time.onrender.com/services")
+    fetch("https://meditime-2-server.onrender.com/services")
       .then((response) => response.json())
       .then((data) => {
         setService(data.data);
