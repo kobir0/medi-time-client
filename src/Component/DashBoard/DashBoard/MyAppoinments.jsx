@@ -7,7 +7,7 @@ const MyAppoinments = () => {
   const { user } = useContext(AuthContext);
   const token = localStorage?.getItem("accessToken");
 
-  const url = `https://meditime-2-server.onrender.com/bookings?email=${user?.email}`;
+  const url = `https://medi-time-server-2.vercel.app/bookings?email=${user?.email}`;
   const { data: bookings = [], isLoading } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {

@@ -6,7 +6,7 @@ import PrivateRoute from "../Authentication/PrivateRoute";
 import Register from "../Authentication/Register";
 import Dashboard from "../DashBoard/DashBoard/Dashboard";
 import DashContent from "../DashBoard/DashBoard/DashContent";
-import DashUsers from "../DashBoard/DashBoard/DashUsers";
+
 import MyAppoinments from "../DashBoard/DashBoard/MyAppoinments";
 import AddService from "../Main-Compo/AddService";
 import Blog from "../Main-Compo/Blog";
@@ -66,10 +66,6 @@ const Routes = createBrowserRouter([
             path: "/dashboard/myappointment",
             element: <MyAppoinments></MyAppoinments>,
           },
-          {
-            path: "/dashboard/users",
-            element: <DashUsers></DashUsers>,
-          },
         ],
       },
       {
@@ -88,7 +84,7 @@ const Routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://meditime-2-server.onrender.com/review/${params.id}`),
+          fetch(`https://medi-time-server-2.vercel.app/review/${params.id}`),
       },
       {
         path: "/login",
@@ -102,7 +98,7 @@ const Routes = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`https://meditime-2-server.onrender.com/services/${params.id}`),
+          fetch(`https://medi-time-server-2.vercel.app/services/${params.id}`),
       },
       {
         path: "/AddService",

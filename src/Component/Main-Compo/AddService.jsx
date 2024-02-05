@@ -20,7 +20,7 @@ const AddService = () => {
       newService: true,
     };
 
-    fetch("https://meditime-2-server.onrender.com/serviceadd", {
+    fetch("https://medi-time-server-2.vercel.app/serviceadd", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(service),

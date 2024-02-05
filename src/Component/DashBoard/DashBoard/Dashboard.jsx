@@ -37,9 +37,6 @@ const Dashboard = () => {
                   My Appointment
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="../dashboard/users"> Users</NavLink>
-              </li>
             </ul>
           </div>
         </div>

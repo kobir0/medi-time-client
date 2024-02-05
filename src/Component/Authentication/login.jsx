@@ -85,7 +85,7 @@ const Login = () => {
 
   const userToDb = (name, email) => {
     const user = { name, email };
-    fetch("https://meditime-2-server.onrender.com/users", {
+    fetch("https://medi-time-server-2.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

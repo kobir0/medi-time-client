@@ -5,7 +5,7 @@ const useToken = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://meditime-2-server.onrender.com/jwt?email=${email}`)
+      fetch(`https://medi-time-server-2.vercel.app/jwt?email=${email}`)
         .then((response) => response.json())
         .then((data) => {
           if (data.accessToken) {

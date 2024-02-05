@@ -13,7 +13,7 @@ const Services = () => {
   useTitle("Services");
 
   useEffect(() => {
-    fetch("https://meditime-2-server.onrender.com/services")
+    fetch("https://medi-time-server-2.vercel.app/services")
       .then((response) => response.json())
       .then((data) => {
         setService(data.data);

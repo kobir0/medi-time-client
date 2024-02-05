@@ -12,7 +12,7 @@ const MyReview = () => {
 
   useEffect(() => {
     fetch(
-      `https://meditime-2-server.onrender.com/reviewemail?email=${user?.email}`
+      `https://medi-time-server-2.vercel.app/reviewemail?email=${user?.email}`
     )
       .then((response) => response.json())
       .then((data) => {

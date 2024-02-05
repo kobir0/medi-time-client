@@ -75,7 +75,7 @@ const Register = () => {
 
   const userToDb = (name, email) => {
     const user = { name, email };
-    fetch("https://meditime-2-server.onrender.com/users", {
+    fetch("https://medi-time-server-2.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -92,7 +92,7 @@ const Register = () => {
   };
 
   // const getUserToken = (email) => {
-  //   fetch(`https://meditime-2-server.onrender.com/jwt?email=${email}`)
+  //   fetch(`https://medi-time-server-2.vercel.app/jwt?email=${email}`)
   //     .then((response) => response.json())
   //     .then((data) => {
   //       if (data.accessToken) {

@@ -34,7 +34,7 @@ const BookingModal = ({
       apppointmentDate: date,
       slot,
     };
-    fetch("https://meditime-2-server.onrender.com/bookings", {
+    fetch("https://medi-time-server-2.vercel.app/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booking),

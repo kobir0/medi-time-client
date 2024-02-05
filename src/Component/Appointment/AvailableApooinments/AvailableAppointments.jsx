@@ -16,7 +16,7 @@ const AvailableAppointments = ({ selectedDate }) => {
     queryKey: ["appointmentOptions", date],
     queryFn: () =>
       fetch(
-        `https://meditime-2-server.onrender.com/appointmentOptions?date=${date}`
+        `https://medi-time-server-2.vercel.app/appointmentOptions?date=${date}`
       ).then((res) => res.json()),
   });
   if (isLoading) {

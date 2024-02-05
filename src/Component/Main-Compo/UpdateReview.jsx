@@ -18,7 +18,7 @@ const UpdateReview = () => {
       comment: comment,
     };
 
-    fetch(`https://meditime-2-server.onrender.com/edit/${data.data._id}`, {
+    fetch(`https://medi-time-server-2.vercel.app/edit/${data.data._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(review),

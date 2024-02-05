@@ -8,7 +8,7 @@ const HomeService = () => {
   const [services, setService] = useState([]);
 
   useEffect(() => {
-    fetch("https://meditime-2-server.onrender.com/threeservices")
+    fetch("https://medi-time-server-2.vercel.app/threeservices")
       .then((response) => response.json())
       .then((data) => setService(data.data))
       .catch((err) => toast.error(err.message));
